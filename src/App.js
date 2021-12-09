@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Navigation from "./components/Navigation/Navigation.js";
+import Logo from "./components/Logo/Logo.js";
+import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import "./App.css";
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        {/* TODO: Navigation */}
+        <Navigation />
+
+        {/* TODO: LOGO */}
+        <Logo />
+
+        {/* TODO: ImageLInkForm */}
+        <ImageLinkForm/>
+        {/* TODO: FaceRecognition */}
+      </div>
+    );
+  }
 }
-
 export default App;
