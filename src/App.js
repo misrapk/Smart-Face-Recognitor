@@ -44,9 +44,27 @@ class App extends Component {
       box: {}, //for box on face
       route: "signin",
       isSignedIn: false,
+      user: {
+        id: "",
+        name: "",
+        email: "",
+        entries: 0,
+        joined: "",
+      },
     };
   }
 
+  addUser = (data) => {
+    this.setState({
+      user: {
+        id: data.id,
+        name: data.name,
+        email: data.email,
+        entries: data.entries,
+        joined: data.joined,
+      },
+    });
+  };
   //TODO: connect with backend
   // componentDidMount() {
   //   fetch("http://localhost:3000")
@@ -128,7 +146,7 @@ class App extends Component {
         ) : route === "signin" ? (
           <Signin onRouteChange={this.onRouteChange} />
         ) : (
-          <Register onRouteChange={this.onRouteChange} />
+          <Register addUser={this.addUser} onRouteChange={this.onRouteChange} />
         )}
       </div>
     );
