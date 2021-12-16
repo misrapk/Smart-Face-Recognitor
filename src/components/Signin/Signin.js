@@ -1,7 +1,7 @@
 import React from "react";
 
 class Signin extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       signInEmail: "",
@@ -28,7 +28,8 @@ class Signin extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data === "success") {
+        if (data.id) {
+          this.props.addUser(data);
           this.props.onRouteChange("home");
         }
       });

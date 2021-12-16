@@ -90,7 +90,7 @@ class App extends Component {
 
   //Function to display the box on face
   displayFaceBox = (box) => {
-    console.log(box);
+    // console.log(box);
     this.setState({ box: box });
   };
 
@@ -101,12 +101,26 @@ class App extends Component {
 
   //code for submit button
   onButtonSubmit = () => {
+    console.log(this.state.user.id);
     this.setState({ imgURL: this.state.input });
     app.models
       .predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
-      .then((response) =>
-        this.displayFaceBox(this.calculateFaceDimenstion(response))
-      )
+      .then((response) => {
+        if (response) {
+          fetch("http://localhost:3000/image", {
+            method: "put",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              id: this.state.user.id,
+            }),
+          })
+            .then((response) => response.json())
+            .then((count) => {
+              this.setState(Object.assign(this.state.user, { entries: count }));
+            });
+        }
+        this.displayFaceBox(this.calculateFaceDimenstion(response));
+      })
       .catch((err) => console.log(err));
   };
 
@@ -135,7 +149,10 @@ class App extends Component {
         {route === "home" ? (
           <div>
             <Logo />
-            <Rank />
+            <Rank
+              name={this.state.user.name}
+              entries={this.state.user.entries}
+            />
             <ImageLinkForm
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
@@ -144,7 +161,7 @@ class App extends Component {
             <FaceRecognition box={box} imgURL={imgURL} />
           </div>
         ) : route === "signin" ? (
-          <Signin onRouteChange={this.onRouteChange} />
+          <Signin addUser={this.addUser} onRouteChange={this.onRouteChange} />
         ) : (
           <Register addUser={this.addUser} onRouteChange={this.onRouteChange} />
         )}
