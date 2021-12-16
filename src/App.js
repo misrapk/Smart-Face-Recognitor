@@ -47,6 +47,13 @@ class App extends Component {
     };
   }
 
+  //TODO: connect with backend
+  // componentDidMount() {
+  //   fetch("http://localhost:3000")
+  //     .then((response) => response.json())
+  //     .then(console.log);
+  // }
+
   //function to calculate the dimesnsion of face box
   calculateFaceDimenstion = (data) => {
     //function that calculate the dimension of face box
