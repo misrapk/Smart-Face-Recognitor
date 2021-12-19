@@ -113,7 +113,7 @@ class App extends Component {
   onButtonSubmit = () => {
     console.log(this.state.user.id);
     this.setState({ imgURL: this.state.input });
-    fetch("http://localhost:3000/imageUrl", {
+    fetch("https://quiet-fortress-13779.herokuapp.com/imageUrl", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -123,7 +123,7 @@ class App extends Component {
       .then((response) => response.json())
       .then((response) => {
         if (response) {
-          fetch("http://localhost:3000/image", {
+          fetch("https://quiet-fortress-13779.herokuapp.com/image", {
             method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -156,32 +156,31 @@ class App extends Component {
     const { isSignedIn, imgURL, route, box } = this.state;
     return (
       <div className="App">
-        <Particles className="particles" params={particlesCode} />
-        {/* TODO: Navigation */}
+        <Particles className="particles" params={particlesCode} />{" "}
+        {/* TODO: Navigation */}{" "}
         <Navigation
           isSignedIn={isSignedIn}
           onRouteChange={this.onRouteChange}
         />
-
         {route === "home" ? (
           <div>
             <Logo />
             <Rank
               name={this.state.user.name}
               entries={this.state.user.entries}
-            />
+            />{" "}
             <ImageLinkForm
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
-            />
-            {/* TODO: FaceRecognition */}
-            <FaceRecognition box={box} imgURL={imgURL} />
+            />{" "}
+            {/* TODO: FaceRecognition */}{" "}
+            <FaceRecognition box={box} imgURL={imgURL} />{" "}
           </div>
         ) : route === "signin" ? (
           <Signin addUser={this.addUser} onRouteChange={this.onRouteChange} />
         ) : (
           <Register addUser={this.addUser} onRouteChange={this.onRouteChange} />
-        )}
+        )}{" "}
       </div>
     );
   }
