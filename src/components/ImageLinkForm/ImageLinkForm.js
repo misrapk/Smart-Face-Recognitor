@@ -6,7 +6,7 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
     <div>
       <p className="f3 white b ">
         {" "}
-        {"This Face Recognitor will detect faces in your Pictures"}{" "}
+        {"This Face Recognitor will detect faces in your Pictures"} <br></br>
         {"Paste the Image URL Below"}{" "}
       </p>{" "}
       <div className="center">
