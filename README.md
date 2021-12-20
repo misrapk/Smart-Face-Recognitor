@@ -4,6 +4,24 @@ LIVE PREVIEW : https://bit.ly/smartfacedetect
 
 LINK TO BACKEND CODE: https://github.com/misrapk/smartfacerecognitorbackend
 
+## Preview
+
+### WOrking GIF
+
+![gif](https://raw.githubusercontent.com/misrapk/Smart-Face-Recognitor/main/images/Animation.gif?token=ALFPYIINFSGKANDKJYIFK53BZFNOS)
+
+#### Signin
+
+![SignIn](https://raw.githubusercontent.com/misrapk/Smart-Face-Recognitor/main/images/signin.PNG?token=ALFPYIL26RGW3FVH4LOMCJTBZFNGK)
+
+#### Register
+
+![Register](https://raw.githubusercontent.com/misrapk/Smart-Face-Recognitor/main/images/register.PNG?token=ALFPYINSFK4MAYFP3W5XXPDBZFNJA)
+
+#### Final Output
+
+![Output](https://raw.githubusercontent.com/misrapk/Smart-Face-Recognitor/main/images/output.PNG?token=ALFPYIO5YMYG5USMV5XILMTBZFNLU)
+
 ## Features
 
 - Recognise Face of any complex image
