@@ -151,7 +151,7 @@ class App extends Component {
     return (
       <div className="App">
         <Particles className="particles" params={particlesCode} />{" "}
-        {/ * TODO: Navigation * /}{" "}
+        {/* TODO: Navigation */}{" "}
         <Navigation
           isSignedIn={isSignedIn}
           onRouteChange={this.onRouteChange}
@@ -167,7 +167,7 @@ class App extends Component {
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
             />{" "}
-            {/ * TODO: FaceRecognition * /}{" "}
+            {/* TODO: FaceRecognition */}{" "}
             <FaceRecognition box={box} imgURL={imgURL} />{" "}
           </div>
         ) : route === "signin" ? (
